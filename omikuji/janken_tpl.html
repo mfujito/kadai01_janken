@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+    <title>じゃんけん</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>一緒にじゃんけんしよう！</h1>
+    </header>
+
+    <main>
+        <ul>
+            <li id="gu_btn">グー</li>
+            <li id="cho_btn">チョキ</li>
+            <li id="par_btn">パー</li>
+        </ul>
+        <div>コンピュータの出した手は「<span id="pc_hands"></span>」</div>
+        <div>あなたの...<span id="judgement"></span></div>
+        <div><span id="pic"></span></div>
+
+    </main>
+
+    <footer></footer>
+    <script>
+   //グーを出した時
+   $("#gu_btn").on("click", function(){
+    //1.乱数（３種類）
+        const r = Math.ceil(Math.random()*3);
+    //2.if分岐処理
+        let view = "";
+        if (r == 1){
+            view = 'グー';
+            view2 = 'あいこ';
+            view3 = '<img src="aiko.jpeg">';
+        }
+        if (r == 2){
+            view = 'チョキ';
+            view2 = '勝ち';
+            view3 = '<img src="kachi.jpeg">';
+        }
+        if (r == 3){
+            view = 'パー';
+            view2 = '負け';
+            view3 = '<img src="make.png">';
+        }
+    //3.表示処理
+        $("#pc_hands").text(view);
+        $("#judgement").text(view2);
+        $("#pic").html(view3);
+    })
+
+   //チョキを出した時
+   $("#cho_btn").on("click", function(){
+    //1.乱数（３種類）
+        const r = Math.ceil(Math.random()*3);
+    //2.if分岐処理
+        let view = "";
+        if (r == 1){
+            view = 'グー';
+            view2 = '負け';
+            view3 = '<img src="make.png">';
+        }
+        if (r == 2){
+            view = 'チョキ';
+            view2 = 'あいこ';
+            view3 = '<img src="aiko.jpeg">';
+        }
+        if (r == 3){
+            view = 'パー';
+            view2 = '勝ち';
+            view3 = '<img src="kachi.jpeg">';
+        }
+    //3.表示処理
+        $("#pc_hands").text(view);
+        $("#judgement").text(view2);
+        $("#pic").html(view3);
+    })
+
+   //パーを出した時
+   $("#par_btn").on("click", function(){
+    //1.乱数（３種類）
+        const r = Math.ceil(Math.random()*3);
+    //2.if分岐処理
+        let view = "";
+        if (r == 1){
+            view = 'グー';
+            view2 = '勝ち';            
+            view3 = '<img src="kachi.jpeg">';
+        }
+        if (r == 2){
+            view = 'チョキ';
+            view2 = '負け';
+            view3 = '<img src="make.png">';
+        }
+        if (r == 3){
+            view = 'パー';
+            view2 = 'あいこ';
+            view3 = '<img src="aiko.jpeg">';
+        }
+    //3.表示処理
+        $("#pc_hands").text(view);
+        $("#judgement").text(view2);
+        $("#pic").html(view3);
+
+    })
+
+   
+    </script>
+</body>
+
+</html>
